@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@+id/studentPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/student_photo" />
+
+    <com.hav3n.mitbunk.TwoDScrollView
+        android:id="@+id/hScrollTable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/studentPhoto"
+        android:layout_marginTop="10dp" >
+
+        <TableLayout
+            android:id="@+id/detailsTable"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+        </TableLayout>
+    </com.hav3n.mitbunk.TwoDScrollView>
+
+</RelativeLayout>

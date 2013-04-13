@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/list_selector"
+    android:orientation="vertical" >
+
+    <!-- The Subject, Scrolling,Bold and of Medium Size -->
+
+    <TextView
+        android:id="@+id/subName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:padding="5dp"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="Event Driven Programming in Java"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <!-- Subject Code -->
+
+    <TextView
+        android:id="@+id/ccode"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="CSE201"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textIsSelectable="true" />
+    <!-- Attended -->
+
+    <TextView
+        android:id="@+id/subAttended"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="39"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    <!-- Absent -->
+
+    <TextView
+        android:id="@+id/subAbsent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="1"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    <!-- Percentage -->
+
+    <TextView
+        android:id="@+id/subPercent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="98%"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    <!-- Updated -->
+
+    <TextView
+        android:id="@+id/subUpdated"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="4/3/2013"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</LinearLayout>
