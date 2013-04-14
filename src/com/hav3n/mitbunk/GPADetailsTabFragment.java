@@ -46,6 +46,7 @@ public class GPADetailsTabFragment extends Fragment
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
+		listProgress = new ProgressDialog(getActivity());
 		listParser = new JSONParser();
 		listJson = new JSONObject();
 
@@ -112,7 +113,7 @@ public class GPADetailsTabFragment extends Fragment
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id)
 			{
-				//Pass the relevant link to the AsyncTask
+				// Pass the relevant link to the AsyncTask
 				new DownloadSemDetails().execute(prevSemUri[position]);
 
 			}
@@ -130,7 +131,7 @@ public class GPADetailsTabFragment extends Fragment
 		@Override
 		protected void onPreExecute()
 		{
-			listProgress = new ProgressDialog(getActivity());
+
 			listProgress.setCancelable(true);
 			listProgress.setMessage("Loading");
 			listProgress.setTitle("");
@@ -161,20 +162,34 @@ public class GPADetailsTabFragment extends Fragment
 		{
 			listProgress.dismiss();
 			Intent intent;
-			if (successFlag)
-			{
 
-				intent = new Intent(getActivity(), SemListViewActivity.class);
-				GlobalVars.semJSON = listJson;
-				startActivity(intent);
-			} else
+			if (listJson.isNull("seminfo"))
+				Toast.makeText(getActivity(), "Error Obtaining Data, Please Report This ", Toast.LENGTH_SHORT).show();
+			else
 			{
-				Toast.makeText(getActivity(), "Error Connecting to Internet,Try Again Later", Toast.LENGTH_SHORT).show();
-				successFlag = true;
+				if (successFlag)
+				{
+
+					intent = new Intent(getActivity(), SemListViewActivity.class);
+					GlobalVars.semJSON = listJson;
+					startActivity(intent);
+				} else
+				{
+					Toast.makeText(getActivity(), "Error Connecting to Internet,Try Again Later", Toast.LENGTH_SHORT).show();
+					successFlag = true;
+				}
 			}
 
 		}
 
+	}
+
+	@Override
+	public void onPause()
+	{
+
+		super.onPause();
+		listProgress.dismiss();
 	}
 
 }

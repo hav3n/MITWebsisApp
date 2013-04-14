@@ -17,6 +17,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,6 +53,7 @@ public class LoginActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		progressDialog = new ProgressDialog(LoginActivity.this);
 		getBunks = (Button) findViewById(R.id.getBunkButton);
 		detailscheck = (CheckBox) findViewById(R.id.rememberOpts);
 		regText = (EditText) findViewById(R.id.regNo);
@@ -63,16 +65,16 @@ public class LoginActivity extends Activity
 		SharedPreferences prefs = this.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 		storedReg = prefs.getString("regno", null);
 		storedBDay = prefs.getString("bday", null);
-		
-		//If both are not null, set the Text
-		
+
+		// If both are not null, set the Text
+
 		if (storedReg != null && storedBDay != null)
 		{
 			regText.setText(storedReg);
 			bdayText.setText(storedBDay);
 		}
 
-		//Make object of SharedPreferences
+		// Make object of SharedPreferences
 		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
 		final SharedPreferences.Editor editor = settings.edit();
 
@@ -85,7 +87,7 @@ public class LoginActivity extends Activity
 			{
 				if (detailscheck.isChecked())
 				{
-					//If CheckBox is checked, save the details on Click
+					// If CheckBox is checked, save the details on Click
 					editor.putString("regno", regText.getText().toString());
 					editor.putString("bday", bdayText.getText().toString());
 					editor.commit();
@@ -97,39 +99,39 @@ public class LoginActivity extends Activity
 
 				// Format the url with the obtained regno and birthdate.
 				dataUri = String.format(dataUri, arg1, arg2);
-				
-				//Begin AsyncTask
+
+				// Begin AsyncTask
 				new DownloadStudentData().execute();
 
 			}
 		});
-		
+
 		bdayText.addTextChangedListener(new TextWatcher()
 		{
-			//To Automatically Add Hyphens When User Enters Date
-			int len=0;
+			// To Automatically Add Hyphens When User Enters Date
+			int len = 0;
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count)
 			{
-				String str=bdayText.getText().toString();
-				if((str.length()==4 && len<str.length())||(str.length()==7 && len<str.length()))
+				String str = bdayText.getText().toString();
+				if ((str.length() == 4 && len < str.length()) || (str.length() == 7 && len < str.length()))
 					bdayText.append("-");
-				
+
 			}
-			
+
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after)
 			{
-				String str = bdayText.getText().toString(); 
-	             len = str.length();
-				
+				String str = bdayText.getText().toString();
+				len = str.length();
+
 			}
-			
+
 			@Override
 			public void afterTextChanged(Editable s)
 			{
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 
@@ -159,11 +161,10 @@ public class LoginActivity extends Activity
 	{
 
 		super.onStart();
-		/*if (storedReg != null && storedBDay != null)
-		{
-			regText.setText(storedReg);
-			bdayText.setText(storedBDay);
-		}*/
+		/*
+		 * if (storedReg != null && storedBDay != null) {
+		 * regText.setText(storedReg); bdayText.setText(storedBDay); }
+		 */
 
 	}
 
@@ -175,13 +176,13 @@ public class LoginActivity extends Activity
 		@Override
 		protected void onPreExecute()
 		{
-			//Show a ProgressDialog While Task is Executing
-			progressDialog = new ProgressDialog(LoginActivity.this);
+			// Show a ProgressDialog While Task is Executing
+
 			progressDialog.setCancelable(true);
 			progressDialog.setTitle(" Downloading Data ");
 			progressDialog.setMessage("Please Wait, Loading...");
 			progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-			
+
 			progressDialog.show();
 
 		}
@@ -198,7 +199,7 @@ public class LoginActivity extends Activity
 				prephotoURL = temp.getString("photolink");
 				// Construct PhotoURL from the link in JSON, if exists
 				prephotoURL = "http://218.248.47.9" + prephotoURL;
-				//Download Photo as Bitmap
+				// Download Photo as Bitmap
 				InputStream in = new java.net.URL(prephotoURL).openStream();
 				tmpPhoto = BitmapFactory.decodeStream(in);
 			} catch (Exception e)
@@ -221,24 +222,32 @@ public class LoginActivity extends Activity
 			 * (JSONException e) { e.printStackTrace(); }
 			 */
 
-			if (!temp.isNull("name"))
+			try
 			{
-				//Check if returned JSON has null mappings for any attrib
-				//Save the global variables
-				GlobalVars.setJSON(temp);
-				GlobalVars.setPhotoURL(prephotoURL);
-				GlobalVars.setBitmap(tmpPhoto);
 
-				// Move to Next Intent
-				Intent actChange = new Intent(getApplicationContext(), DetailsTabViewActivity.class);
-				startActivity(actChange);
-				finish();
-			} else
+				if (!temp.isNull("name"))
+				{
+
+					// Check if returned JSON has null mappings for any attrib
+					// Save the global variables
+					GlobalVars.setJSON(temp);
+					GlobalVars.setPhotoURL(prephotoURL);
+					GlobalVars.setBitmap(tmpPhoto);
+
+					// Move to Next Intent
+					Intent actChange = new Intent(getApplicationContext(), DetailsTabViewActivity.class);
+					startActivity(actChange);
+					finish();
+				} else
+				{
+					Toast.makeText(getApplicationContext(), "Error in Downloading, Please Check Details or Try Again", Toast.LENGTH_LONG).show();
+
+				}
+			} catch (NullPointerException e)
 			{
-				Toast.makeText(getApplicationContext(), "Error in Downloading, Please Check Details or Try Again", Toast.LENGTH_LONG).show();
-
+				Toast.makeText(getApplicationContext(), "Error in Downloading, Please Check Your Internet Connection", Toast.LENGTH_LONG).show();
 			}
-			
+
 			progressDialog.dismiss();
 		}
 	}
@@ -246,7 +255,8 @@ public class LoginActivity extends Activity
 	@Override
 	protected void onPause()
 	{
-		//This Code is Necessary to Prevent Window Leak,as Main Activity can be paused while downloading.
+		// This Code is Necessary to Prevent Window Leak,as Main Activity can be
+		// paused while downloading.
 		super.onPause();
 		if (progressDialog != null)
 			progressDialog.dismiss();

@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SemListViewActivity extends Activity
 {
@@ -38,7 +39,14 @@ public class SemListViewActivity extends Activity
 		{
 			recdJson = GlobalVars.semJSON;
 
+			if(recdJson.isNull("seminfo"))
+			{
+				Toast.makeText(getApplicationContext(), "Could Not download Sem Information", Toast.LENGTH_SHORT).show();
+				
+			}
 			ar = recdJson.getJSONArray("seminfo");
+			
+			
 
 			for (int i = 0; i < ar.length(); i++)
 			{

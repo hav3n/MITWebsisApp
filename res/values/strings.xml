@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="details_label"><u>Enter Details</u></string>
     <string name="get_Button_Text">Get Details</string>
-    <string name="reg_hint">Registration Number</string>
+    <string name="reg_hint">Registration No.</string>
     <string name="bday_hint">YYYY-MM-DD</string>
     <string name="save_details_checkbox_text">Remember Me</string>
     <string name="about_content_text">\n\nWritten by: Nikhil Peter Raj \nEmail:hav3n.anddev@gmail.com \nCredits To: \nAnkit Agarwal(aciid) for his API\nURLImageViewHelper and Apache Commons Lang Libraries \n\n\nComments,Feedback and Suggestions are  welcome\nSource Code may be found at github,search for MITBunkApp\nAlso this is my first \&quot;serious\&quot; android app,have mercy :D\n\nThanks for Using this App!!\n\nPS The reason this about page looks so bad is coz i was too lazy and fed up to do it properly\nDeal with It -___-</string>
