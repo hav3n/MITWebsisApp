@@ -8,7 +8,11 @@ import org.json.JSONObject;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
 
-//This class is used to store the global variables viz. the JSONObject returned
+/*
+ * This class is used for general purpose global variables
+ * Setters and Getters aren't really required but added to
+ * have some OOP functionality atleast
+ */
 
 public class GlobalVars
 {

@@ -1,5 +1,7 @@
 package com.hav3n.mitbunk;
-
+/*
+ * Custom Adapter for The GPA ListView
+ */
 import java.util.ArrayList;
 import java.util.HashMap;
 

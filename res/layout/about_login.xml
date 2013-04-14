@@ -14,6 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
+            android:gravity="center"
             android:padding="14dp"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -24,6 +25,7 @@
             android:layout_gravity="center_horizontal"
             android:autoLink="all"
             android:linksClickable="true"
+            android:gravity="center"
             android:padding="14dp"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -33,6 +35,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:padding="14dp"
+            android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
@@ -42,6 +45,7 @@
             android:layout_gravity="center_horizontal"
             android:padding="14dp"
             android:text="@string/libs_content"
+            android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
@@ -51,6 +55,7 @@
             android:layout_gravity="center_horizontal"
             android:padding="14dp"
             android:text="@string/comments_content"
+            android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
@@ -59,6 +64,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:padding="14dp"
+            android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
@@ -68,6 +74,7 @@
             android:layout_gravity="center_horizontal"
             android:padding="14dp"
             android:text="@string/thanks_content"
+            android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceSmall" />
     </LinearLayout>
 

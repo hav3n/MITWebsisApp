@@ -1,5 +1,7 @@
 package com.hav3n.mitbunk;
-
+/*
+ * Adapter for Sem ListView
+ */
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -64,7 +66,7 @@ public class SemListAdapter extends BaseAdapter
 		row = adapterkeylist.get(position);
 
 		temp = row.get("sub");
-		temp = StringEscapeUtils.escapeHtml4(temp);
+		temp = StringEscapeUtils.unescapeHtml4(temp);
 
 		semSubName.setText(temp);
 		semCCode.setText("Subject Code: " + row.get("subcode"));

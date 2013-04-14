@@ -14,7 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-
+/* Fragment for Attendance Details
+ * Main Layout is custom ListView bound to AttendanceListAdapter
+ */
 public class AttendanceDetailsTabFragment extends Fragment
 {
 	AttendanceListAdapter adapter;
@@ -35,7 +37,7 @@ public class AttendanceDetailsTabFragment extends Fragment
 	{
 
 		View view = inflater.inflate(R.layout.attendance_listview_layout, container, false);
-
+		//Associative Hashed Array
 		keyslist = new ArrayList<HashMap<String, String>>();
 		String temp = new String();
 
@@ -43,7 +45,7 @@ public class AttendanceDetailsTabFragment extends Fragment
 		{
 			ar = new JSONArray();
 			ar = GlobalVars.getJSON().getJSONArray("attendanceData");
-
+			//Parse the 2D JSON Array
 			for (int i = 0; i < ar.length(); i++)
 			{
 				HashMap<String, String> map = new HashMap<String, String>();
@@ -71,7 +73,7 @@ public class AttendanceDetailsTabFragment extends Fragment
 
 		ListView list = (ListView) view.findViewById(R.id.list);
 
-		// adapter.notifyDataSetChanged();
+		// Set Up ListView
 		adapter = new AttendanceListAdapter(getActivity(), keyslist);
 		list.setAdapter(adapter);
 

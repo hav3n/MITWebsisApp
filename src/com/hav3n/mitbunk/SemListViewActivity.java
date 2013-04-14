@@ -1,5 +1,7 @@
 package com.hav3n.mitbunk;
-
+/*
+ * The Activity Launched Within GPA Fragment, Displays ListView of Prev Sems
+ */
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -30,10 +32,6 @@ public class SemListViewActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sem_details_listview_layout);
 
-		// LayoutInflater inflater = (LayoutInflater)
-		// this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		// View v = inflater.inflate(R.layout.sem_details_listview_layout,null);
-
 		ar = new JSONArray();
 		keyslist = new ArrayList<HashMap<String, String>>();
 		try
@@ -63,7 +61,10 @@ public class SemListViewActivity extends Activity
 			semSession.setText("Session: " + recdJson.getString("session"));
 			semGPA.setText("Semester GPA: " + recdJson.getString("gpa"));
 
+			semList = (ListView) findViewById(R.id.semlist);
+
 			adapter = new SemListAdapter(this, keyslist);
+
 			semList.setAdapter(adapter);
 
 			// setContentView(R.layout.sem_details_listview_layout);

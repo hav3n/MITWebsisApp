@@ -1,5 +1,7 @@
 package com.hav3n.mitbunk;
-
+/* Custom ListAdapter for Attendance Fragment
+ * 
+ */
 import java.util.ArrayList;
 import java.util.HashMap;
 

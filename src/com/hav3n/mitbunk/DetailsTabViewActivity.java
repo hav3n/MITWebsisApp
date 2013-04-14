@@ -11,7 +11,14 @@ import android.view.View;
 import android.view.Window;
 import android.widget.TabHost;
 import android.widget.TabHost.TabContentFactory;
-
+/* This Activity is mainly(i guess) boilerplate code for how the main Tab Activity manages 
+ * the attaching and detaching of fragments, as well the relevant code to instantiate these tabs
+ * Copied almost exactly from http://thepseudocoder.wordpress.com/2011/10/04/android-tabs-the-fragment-way/
+ * 
+ * All we have to do is add the tabs we want in the initialiseTabHost method
+ * 
+ * TODO Check if this method works for more than 3 tabs(i.e scrolling)
+ */
 public class DetailsTabViewActivity extends FragmentActivity implements TabHost.OnTabChangeListener
 {
 	private TabHost mTabHost;

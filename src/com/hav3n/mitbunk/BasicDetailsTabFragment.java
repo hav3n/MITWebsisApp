@@ -1,5 +1,10 @@
 package com.hav3n.mitbunk;
-
+/*
+ * Fragment for Basic Details
+ * TableLayout is Created Dynamically since it makes more sense that way
+ * as we don't have an entire column
+ * 
+ */
 import java.util.Locale;
 
 import org.apache.commons.lang3.text.WordUtils;
@@ -123,8 +128,7 @@ public class BasicDetailsTabFragment extends Fragment
 		}
 
 		return view;
-		// return (RelativeLayout)
-		// inflater.inflate(R.layout.basic_details_layout, container, false);
+		
 
 	}
 

@@ -1,5 +1,10 @@
 package com.hav3n.mitbunk;
-
+/*Fragment for GPA Details
+ * Intent to a new Activity having ListView containing the previous
+ * sem GPA,Credits and Grade is launched from here after constructing the relevant
+ * link from JSON
+ * 
+ */
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -107,7 +112,7 @@ public class GPADetailsTabFragment extends Fragment
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id)
 			{
-
+				//Pass the relevant link to the AsyncTask
 				new DownloadSemDetails().execute(prevSemUri[position]);
 
 			}

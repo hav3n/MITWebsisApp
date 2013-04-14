@@ -1,5 +1,9 @@
 package com.hav3n.mitbunk;
-
+/*
+ * JSON Parser, to get JSON from URL and return JSONObject
+ * 
+ * Taken From:http://www.androidhive.info/2012/01/android-json-parsing-tutorial/
+ */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
