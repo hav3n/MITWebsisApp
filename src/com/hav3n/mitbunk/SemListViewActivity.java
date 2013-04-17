@@ -1,3 +1,7 @@
+/**
+ * @author Haven <haven.anddev@gmail.com>
+ */
+
 package com.hav3n.mitbunk;
 /*
  * The Activity Launched Within GPA Fragment, Displays ListView of Prev Sems

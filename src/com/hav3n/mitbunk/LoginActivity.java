@@ -1,3 +1,8 @@
+/**
+ * @author Haven <haven.anddev@gmail.com>
+ */
+
+
 package com.hav3n.mitbunk;
 /* Main Login Activity
  * Note: This Activity is destroyed after Intent is changed so it isn't possible to return here.
@@ -17,7 +22,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,7 +41,7 @@ public class LoginActivity extends Activity
 	String storedReg, storedBDay;
 	public static final String PREFS_NAME = "MyPrefsFile";
 	String prephotoURL;
-	public static String dataUri = "http://ankit.im/websisAPI/parser.php?id=%s&bday=%s";
+	public String dataUri = "http://ankit.im/websisAPI/parser.php?id=%s&bday=%s";
 	ProgressDialog progressDialog;
 	JSONObject temp = null;
 	Bitmap tmpPhoto;
@@ -99,6 +103,7 @@ public class LoginActivity extends Activity
 
 				// Format the url with the obtained regno and birthdate.
 				dataUri = String.format(dataUri, arg1, arg2);
+				GlobalVars.storedURL = dataUri;
 
 				// Begin AsyncTask
 				new DownloadStudentData().execute();
@@ -159,12 +164,7 @@ public class LoginActivity extends Activity
 	@Override
 	protected void onStart()
 	{
-
 		super.onStart();
-		/*
-		 * if (storedReg != null && storedBDay != null) {
-		 * regText.setText(storedReg); bdayText.setText(storedBDay); }
-		 */
 
 	}
 
@@ -178,7 +178,7 @@ public class LoginActivity extends Activity
 		{
 			// Show a ProgressDialog While Task is Executing
 
-			progressDialog.setCancelable(true);
+			progressDialog.setCancelable(false);
 			progressDialog.setTitle(" Downloading Data ");
 			progressDialog.setMessage("Please Wait, Loading...");
 			progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -215,12 +215,7 @@ public class LoginActivity extends Activity
 		protected void onPostExecute(Void v)
 		{
 
-			/*
-			 * try {
-			 * 
-			 * GlobalVars.setPhotoURL(temp.getString("photolink")); } catch
-			 * (JSONException e) { e.printStackTrace(); }
-			 */
+			
 
 			try
 			{

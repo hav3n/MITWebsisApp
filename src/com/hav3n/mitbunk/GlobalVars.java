@@ -1,3 +1,7 @@
+/**
+ * @author Haven <haven.anddev@gmail.com>
+ */
+
 package com.hav3n.mitbunk;
 
 import java.net.URL;
@@ -22,6 +26,7 @@ public class GlobalVars
 	public static ImageView storedImg;
 	public static Bitmap photo = null;
 	public static JSONObject semJSON = new JSONObject();
+	public static String storedURL = new String();
 
 	public static ImageView getImg()
 	{

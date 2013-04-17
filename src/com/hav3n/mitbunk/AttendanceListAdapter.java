@@ -1,3 +1,7 @@
+/**
+ * @author Haven <haven.anddev@gmail.com>
+ */
+
 package com.hav3n.mitbunk;
 /* Custom ListAdapter for Attendance Fragment
  * 

@@ -1,3 +1,9 @@
+/**
+ * @author Haven <haven.anddev@gmail.com>
+ */
+
+
+
 package com.hav3n.mitbunk;
 /*Fragment for GPA Details
  * Intent to a new Activity having ListView containing the previous
@@ -35,7 +41,7 @@ public class GPADetailsTabFragment extends Fragment
 	JSONObject jobj;
 	ArrayList<HashMap<String, String>> keyslist;
 	ProgressDialog listProgress;
-	public static String semUri = LoginActivity.dataUri + "&link=";
+	public static String semUri = GlobalVars.storedURL + "&link=";
 	String prevSemUri[];
 	String temp;
 	JSONParser listParser;
@@ -132,12 +138,12 @@ public class GPADetailsTabFragment extends Fragment
 		protected void onPreExecute()
 		{
 
-			listProgress.setCancelable(true);
+			listProgress.setCancelable(false);
 			listProgress.setMessage("Loading");
 			listProgress.setTitle("");
 			listProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 			listProgress.show();
-			// super.onPreExecute();
+			
 		}
 
 		@Override
