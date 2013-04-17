@@ -2,7 +2,6 @@
  * @author Haven <haven.anddev@gmail.com>
  */
 
-
 package com.hav3n.mitbunk;
 /* Main Login Activity
  * Note: This Activity is destroyed after Intent is changed so it isn't possible to return here.
@@ -46,9 +45,6 @@ public class LoginActivity extends Activity
 	JSONObject temp = null;
 	Bitmap tmpPhoto;
 	public static String jsonURL;
-
-	public static final String ERR_TAG = "Error Tag";
-	public static final String INFO_TAG = "Info Tag";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -214,8 +210,6 @@ public class LoginActivity extends Activity
 
 		protected void onPostExecute(Void v)
 		{
-
-			
 
 			try
 			{
