@@ -12,7 +12,6 @@ Thanks To:
 App Uses:
 ----------
 
-[URLImageViewHelper](https://github.com/koush/UrlImageViewHelper)
 
 [Apache Commons Lang Library](http://commons.apache.org/proper/commons-lang/)
 
