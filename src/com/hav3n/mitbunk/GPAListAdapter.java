@@ -70,6 +70,7 @@ public class GPAListAdapter extends BaseAdapter
 
 		row = adapterkeylist.get(position);
 
+		
 		semTitle.setText(row.get("semTitle"));
 		semGPA.setText("GPA: " + row.get("semGPA"));
 

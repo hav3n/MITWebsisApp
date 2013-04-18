@@ -249,7 +249,8 @@ int drawable gradient_bg 0x7f02006f
 int drawable gradient_bg_hover 0x7f020070
 int drawable ic_launcher 0x7f020071
 int drawable list_selector 0x7f020072
-int drawable student_photo 0x7f020073
+int drawable placeholder 0x7f020073
+int drawable student_photo 0x7f020074
 int id CGPA 0x7f04004c
 int id Comments 0x7f040014
 int id Source 0x7f040015

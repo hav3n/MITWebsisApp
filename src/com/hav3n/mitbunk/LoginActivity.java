@@ -91,7 +91,6 @@ public class LoginActivity extends Activity
 					editor.putString("regno", regText.getText().toString());
 					editor.putString("bday", bdayText.getText().toString());
 					editor.commit();
-					Toast.makeText(getApplicationContext(), "Storing Details", Toast.LENGTH_LONG).show();
 				}
 
 				String arg1 = regText.getText().toString();

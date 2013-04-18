@@ -92,8 +92,14 @@ public class BasicDetailsTabFragment extends Fragment
 
 		ImageView iv = (ImageView) view.findViewById(R.id.studentPhoto);
 
-		Bitmap resizedPhoto = Bitmap.createScaledBitmap(GlobalVars.photo, 300, 350, false);
-		iv.setImageBitmap(resizedPhoto);
+		try
+		{
+			Bitmap resizedPhoto = Bitmap.createScaledBitmap(GlobalVars.photo, 300, 350, false);
+			iv.setImageBitmap(resizedPhoto);
+		} catch (NullPointerException e)
+		{
+			iv.setImageDrawable(getResources().getDrawable(R.drawable.placeholder));
+		}
 
 		for (int i = 0; i < 7; i++)
 		{
@@ -132,7 +138,6 @@ public class BasicDetailsTabFragment extends Fragment
 		}
 
 		return view;
-		
 
 	}
 

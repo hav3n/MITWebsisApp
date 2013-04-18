@@ -930,7 +930,8 @@ containing a value of this type.
         public static final int gradient_bg_hover=0x7f020070;
         public static final int ic_launcher=0x7f020071;
         public static final int list_selector=0x7f020072;
-        public static final int student_photo=0x7f020073;
+        public static final int placeholder=0x7f020073;
+        public static final int student_photo=0x7f020074;
     }
     public static final class id {
         public static final int CGPA=0x7f04004c;

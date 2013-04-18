@@ -33,7 +33,7 @@ public class About extends Activity
 
 		String wtext = "Written By: <a href=\"http://www.facebook.com/dragonsrule121\">Nikhil Peter Raj</a>";
 		String emailText = "Email: hav3n.anddev@gmail.com";
-		String creditsText = "Credits To:<br/><a href=\"http://www.facebook.com/www.ankit.im\">Ankit Agarwal(aciid)</a> for the API";
+		String creditsText = "Credits To:<br/><a href=\"http://www.facebook.com/www.ankit.im\">Ankit Agarwal(aciid)</a> for the API<br/><br/><a href=\"http://www.facebook.com/minesh.wadhwa\">Minesh Wadhwa</a> for Icons";
 		String sourceText = "Source Code: <a href=\'https://github.com/hav3n/MITWebsisApp'>here</a>";
 		String libsText = "\nThis App Uses The Following Code/Libs:<br/><br/><a href=\"http://commons.apache.org/proper/commons-lang/\">Apache Commons Lang Library</a><br/><br/><a href=\"http://blog.gorges.us/2010/06/android-two-dimensional-scrollview/\">TwoDScrollView</a>";
 

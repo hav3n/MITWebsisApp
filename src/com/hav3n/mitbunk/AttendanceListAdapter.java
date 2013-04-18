@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,7 +79,24 @@ public class AttendanceListAdapter extends BaseAdapter
 		absent.setText("Classes Absent: " + row.get("bunked"));
 		percent.setText("Attendance Percentage: " + row.get("percent"));
 		updated.setText("Last Updated: " + row.get("updated"));
+		
+		
+				
+		if(row.get("percent").equalsIgnoreCase("NA"))
+		{
+			percent.setTextColor(Color.parseColor("#00A600"));
+		}
+		else if(Integer.parseInt(row.get("percent"))<=75)
+		{
+			percent.setTextColor(Color.parseColor("#FF0000"));
+		}
+		else
+		{
+			percent.setTextColor(Color.parseColor("#00A600"));
+		}
 
+		
+		
 		return v;
 
 	}
